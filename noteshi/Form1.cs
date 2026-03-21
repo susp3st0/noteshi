@@ -2,9 +2,9 @@ using System.Drawing.Text;
 
 namespace noteshi
 {
-    public partial class Form1 : Form
+    public partial class main : Form
     {
-        public Form1()
+        public main()
         {
             InitializeComponent();
             this.Text = "noteshi";
@@ -87,13 +87,71 @@ namespace noteshi
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Show the Apply button so the user can apply without closing the dialog.
             fontDialog1.ShowApply = true;
 
-            // Show dialog with this form as owner and apply the font if the user clicks OK.
             if (fontDialog1.ShowDialog(this) == DialogResult.OK && fontDialog1?.Font is not null)
             {
                 richTextBox1.Font = fontDialog1.Font;
+            }
+        }
+
+        private void transparentbutton_Click(object sender, EventArgs e)
+        {
+            this.Opacity = 0.5;
+            toolStripMenuItem3.Checked = true;
+            if (toolStripMenuItem5.Checked = true || toolStripMenuItem2.Checked == true || toolStripMenuItem4.Checked == true)
+            {
+                toolStripMenuItem5.Checked = false;
+                toolStripMenuItem2.Checked = false;
+                toolStripMenuItem4.Checked = false;
+            }
+
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            this.Opacity = 1;
+            toolStripMenuItem5.Checked = true;
+            if (toolStripMenuItem3.Checked = true || toolStripMenuItem2.Checked == true || toolStripMenuItem4.Checked == true)
+            {
+                toolStripMenuItem3.Checked = false;
+                toolStripMenuItem2.Checked = false;
+                toolStripMenuItem4.Checked = false;
+            }
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            this.Opacity = 0.75;
+            toolStripMenuItem5.Checked = true;
+            if (toolStripMenuItem3.Checked = true || toolStripMenuItem2.Checked == true || toolStripMenuItem5.Checked == true)
+            {
+                toolStripMenuItem3.Checked = false;
+                toolStripMenuItem2.Checked = false;
+                toolStripMenuItem5.Checked = false;
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.Opacity = 0.25;
+            toolStripMenuItem5.Checked = true;
+            if (toolStripMenuItem3.Checked = true || toolStripMenuItem5.Checked == true || toolStripMenuItem4.Checked == true)
+            {
+                toolStripMenuItem3.Checked = false;
+                toolStripMenuItem5.Checked = false;
+                toolStripMenuItem4.Checked = false;
+            }
+        }
+
+        private void wordWarpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (wordWarpToolStripMenuItem.Checked == true)
+            {
+                richTextBox1.WordWrap = true;
+            } else
+            {
+                richTextBox1.WordWrap = false;
             }
         }
     }
