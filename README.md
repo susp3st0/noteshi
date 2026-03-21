@@ -4,3 +4,6 @@ feature?
 - font changer
 - windows transparency
 - word warp
+
+very buggy :(
+
