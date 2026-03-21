@@ -150,10 +150,46 @@ namespace noteshi
             if (wordWarpToolStripMenuItem.Checked == true)
             {
                 richTextBox1.WordWrap = true;
-            } else
+            }
+            else
             {
                 richTextBox1.WordWrap = false;
             }
         }
+
+        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                richTextBox1.ZoomFactor += (float)0.1;
+            }
+            catch
+            {
+                MessageBox.Show("Can't zoom in further");
+            }
+        }
+        private void setToDefaultZoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.ZoomFactor = 1;
+        }
+
+        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                richTextBox1.ZoomFactor -= (float)0.1;
+            }
+            catch
+            {
+                MessageBox.Show("Can't zoom out further");
+            }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Letters: " + Convert.ToString(Convert.ToInt32(richTextBox1.Text.Length));
+        }
+
+
     }
 }

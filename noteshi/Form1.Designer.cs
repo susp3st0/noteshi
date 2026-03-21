@@ -36,6 +36,10 @@
             selectToolStripMenuItem = new ToolStripMenuItem();
             fontToolStripMenuItem = new ToolStripMenuItem();
             viewToolStripMenuItem = new ToolStripMenuItem();
+            zoomToolStripMenuItem = new ToolStripMenuItem();
+            zoomInToolStripMenuItem = new ToolStripMenuItem();
+            zoomOutToolStripMenuItem = new ToolStripMenuItem();
+            setToDefaultZoomToolStripMenuItem = new ToolStripMenuItem();
             windowsTransparencyToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
@@ -46,7 +50,10 @@
             folderBrowserDialog1 = new FolderBrowserDialog();
             richTextBox1 = new RichTextBox();
             fontDialog1 = new FontDialog();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -68,21 +75,23 @@
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(117, 22);
+            openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
+            openToolStripMenuItem.Size = new Size(164, 22);
             openToolStripMenuItem.Text = "Open...";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(117, 22);
+            saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
+            saveToolStripMenuItem.Size = new Size(164, 22);
             saveToolStripMenuItem.Text = "Save...";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // closeToolStripMenuItem
             // 
             closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            closeToolStripMenuItem.Size = new Size(117, 22);
+            closeToolStripMenuItem.Size = new Size(164, 22);
             closeToolStripMenuItem.Text = "Close";
             closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
             // 
@@ -102,10 +111,42 @@
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { windowsTransparencyToolStripMenuItem, wordWarpToolStripMenuItem });
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { zoomToolStripMenuItem, windowsTransparencyToolStripMenuItem, wordWarpToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(52, 20);
             viewToolStripMenuItem.Text = "View";
+            // 
+            // zoomToolStripMenuItem
+            // 
+            zoomToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { zoomInToolStripMenuItem, zoomOutToolStripMenuItem, setToDefaultZoomToolStripMenuItem });
+            zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
+            zoomToolStripMenuItem.Size = new Size(227, 22);
+            zoomToolStripMenuItem.Text = "Zoom";
+            // 
+            // zoomInToolStripMenuItem
+            // 
+            zoomInToolStripMenuItem.Name = "zoomInToolStripMenuItem";
+            zoomInToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+=";
+            zoomInToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Oemplus;
+            zoomInToolStripMenuItem.Size = new Size(203, 22);
+            zoomInToolStripMenuItem.Text = "Zoom in";
+            zoomInToolStripMenuItem.Click += zoomInToolStripMenuItem_Click;
+            // 
+            // zoomOutToolStripMenuItem
+            // 
+            zoomOutToolStripMenuItem.Name = "zoomOutToolStripMenuItem";
+            zoomOutToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+-";
+            zoomOutToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.OemMinus;
+            zoomOutToolStripMenuItem.Size = new Size(203, 22);
+            zoomOutToolStripMenuItem.Text = "Zoom out";
+            zoomOutToolStripMenuItem.Click += zoomOutToolStripMenuItem_Click;
+            // 
+            // setToDefaultZoomToolStripMenuItem
+            // 
+            setToDefaultZoomToolStripMenuItem.Name = "setToDefaultZoomToolStripMenuItem";
+            setToDefaultZoomToolStripMenuItem.Size = new Size(203, 22);
+            setToDefaultZoomToolStripMenuItem.Text = "Set to default zoom";
+            setToDefaultZoomToolStripMenuItem.Click += setToDefaultZoomToolStripMenuItem_Click;
             // 
             // windowsTransparencyToolStripMenuItem
             // 
@@ -161,7 +202,7 @@
             richTextBox1.BackColor = SystemColors.InactiveBorder;
             richTextBox1.BorderStyle = BorderStyle.None;
             richTextBox1.Dock = DockStyle.Fill;
-            richTextBox1.Font = new Font("Lucida Console", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            richTextBox1.Font = new Font("Segoe UI Semilight", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             richTextBox1.Location = new Point(0, 24);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(800, 426);
@@ -169,17 +210,34 @@
             richTextBox1.Text = "";
             richTextBox1.WordWrap = false;
             richTextBox1.LinkClicked += richTextBox1_LinkClicked;
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // fontDialog1
             // 
             fontDialog1.Font = new Font("Lucida Console", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             fontDialog1.Apply += fontDialog1_Apply;
             // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.TabIndex = 2;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(72, 17);
+            toolStripStatusLabel1.Text = "Letters: 0";
+            // 
             // main
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(statusStrip1);
             Controls.Add(richTextBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -187,6 +245,8 @@
             Text = "Form1";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -211,5 +271,11 @@
         private ToolStripMenuItem toolStripMenuItem4;
         private ToolStripMenuItem toolStripMenuItem5;
         private ToolStripMenuItem wordWarpToolStripMenuItem;
+        private ToolStripMenuItem zoomToolStripMenuItem;
+        private ToolStripMenuItem zoomInToolStripMenuItem;
+        private ToolStripMenuItem zoomOutToolStripMenuItem;
+        private ToolStripMenuItem setToDefaultZoomToolStripMenuItem;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
