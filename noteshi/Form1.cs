@@ -190,6 +190,68 @@ namespace noteshi
             toolStripStatusLabel1.Text = "Letters: " + Convert.ToString(Convert.ToInt32(richTextBox1.Text.Length));
         }
 
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Copy();
+        }
 
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Paste();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                richTextBox1.SelectedText = string.Empty;
+            }
+            else
+            {
+                int pos = richTextBox1.SelectionStart;
+                if (pos < richTextBox1.Text.Length)
+                {
+                    richTextBox1.Text = richTextBox1.Text.Remove(pos, 1);
+                    richTextBox1.SelectionStart = pos;
+                }
+            }
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+        }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Undo();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Redo();
+        }
+
+        private void righttoleftToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (righttoleftToolStripMenuItem.Checked)
+            {
+                richTextBox1.RightToLeft = RightToLeft.Yes;
+            }
+            else
+            {
+                richTextBox1.RightToLeft = RightToLeft.No;
+            }
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Cut();
+        }
+
+        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Paste();
+        }
     }
 }
