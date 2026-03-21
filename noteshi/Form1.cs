@@ -146,6 +146,7 @@ namespace noteshi
 
         private void wordWarpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //word warp
             if (wordWarpToolStripMenuItem.Checked == true)
             {
                 richTextBox1.WordWrap = true;
