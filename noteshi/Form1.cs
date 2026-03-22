@@ -144,10 +144,10 @@ namespace noteshi
             }
         }
 
-        private void wordWarpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void wordwarp(object sender, EventArgs e)
         {
             //word warp
-            if (wordWarpToolStripMenuItem.Checked == true)
+            if (toolStripMenuItem1.Checked == true)
             {
                 richTextBox1.WordWrap = true;
             }
@@ -252,6 +252,24 @@ namespace noteshi
         private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             richTextBox1.Paste();
+        }
+
+        private void statusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (statusBarToolStripMenuItem.Checked)
+            {
+                statusStrip1.Visible = true;
+            }
+            else
+            {
+                statusStrip1.Visible = false;
+            }
+        }
+
+        private void timeDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           DateTime now = DateTime.Now;
+           richTextBox1.Text += now; 
         }
     }
 }

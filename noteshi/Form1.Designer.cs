@@ -35,11 +35,17 @@
             saveToolStripMenuItem = new ToolStripMenuItem();
             closeToolStripMenuItem = new ToolStripMenuItem();
             selectToolStripMenuItem = new ToolStripMenuItem();
+            undoToolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
             cutToolStripMenuItem = new ToolStripMenuItem();
             copyToolStripMenuItem1 = new ToolStripMenuItem();
             pasteToolStripMenuItem1 = new ToolStripMenuItem();
             deleteToolStripMenuItem1 = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
+            selectAllToolStripMenuItem1 = new ToolStripMenuItem();
+            timeDateToolStripMenuItem = new ToolStripMenuItem();
+            formatToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             fontToolStripMenuItem = new ToolStripMenuItem();
             viewToolStripMenuItem = new ToolStripMenuItem();
             zoomToolStripMenuItem = new ToolStripMenuItem();
@@ -51,8 +57,8 @@
             toolStripMenuItem3 = new ToolStripMenuItem();
             toolStripMenuItem4 = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripMenuItem();
-            wordWarpToolStripMenuItem = new ToolStripMenuItem();
             righttoleftToolStripMenuItem = new ToolStripMenuItem();
+            statusBarToolStripMenuItem = new ToolStripMenuItem();
             saveFileDialog1 = new SaveFileDialog();
             folderBrowserDialog1 = new FolderBrowserDialog();
             richTextBox1 = new RichTextBox();
@@ -60,6 +66,7 @@
             undoToolStripMenuItem = new ToolStripMenuItem();
             redoToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
+            cutToolStripMenuItem1 = new ToolStripMenuItem();
             pasteToolStripMenuItem = new ToolStripMenuItem();
             copyToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
@@ -67,7 +74,6 @@
             fontDialog1 = new FontDialog();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
-            cutToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -75,7 +81,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, selectToolStripMenuItem, viewToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, selectToolStripMenuItem, formatToolStripMenuItem, viewToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -114,10 +120,22 @@
             // 
             // selectToolStripMenuItem
             // 
-            selectToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cutToolStripMenuItem, copyToolStripMenuItem1, pasteToolStripMenuItem1, deleteToolStripMenuItem1, toolStripSeparator2, fontToolStripMenuItem });
+            selectToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoToolStripMenuItem1, toolStripSeparator3, cutToolStripMenuItem, copyToolStripMenuItem1, pasteToolStripMenuItem1, deleteToolStripMenuItem1, toolStripSeparator2, selectAllToolStripMenuItem1, timeDateToolStripMenuItem });
             selectToolStripMenuItem.Name = "selectToolStripMenuItem";
             selectToolStripMenuItem.Size = new Size(43, 20);
             selectToolStripMenuItem.Text = "Edit";
+            // 
+            // undoToolStripMenuItem1
+            // 
+            undoToolStripMenuItem1.Name = "undoToolStripMenuItem1";
+            undoToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+Z";
+            undoToolStripMenuItem1.Size = new Size(180, 22);
+            undoToolStripMenuItem1.Text = "Undo";
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(177, 6);
             // 
             // cutToolStripMenuItem
             // 
@@ -156,16 +174,47 @@
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(177, 6);
             // 
+            // selectAllToolStripMenuItem1
+            // 
+            selectAllToolStripMenuItem1.Name = "selectAllToolStripMenuItem1";
+            selectAllToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+A";
+            selectAllToolStripMenuItem1.Size = new Size(180, 22);
+            selectAllToolStripMenuItem1.Text = "Select all";
+            selectAllToolStripMenuItem1.Click += selectAllToolStripMenuItem_Click;
+            // 
+            // timeDateToolStripMenuItem
+            // 
+            timeDateToolStripMenuItem.Name = "timeDateToolStripMenuItem";
+            timeDateToolStripMenuItem.ShortcutKeys = Keys.F5;
+            timeDateToolStripMenuItem.Size = new Size(180, 22);
+            timeDateToolStripMenuItem.Text = "Time/date";
+            timeDateToolStripMenuItem.Click += timeDateToolStripMenuItem_Click;
+            // 
+            // formatToolStripMenuItem
+            // 
+            formatToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, fontToolStripMenuItem });
+            formatToolStripMenuItem.Name = "formatToolStripMenuItem";
+            formatToolStripMenuItem.Size = new Size(67, 20);
+            formatToolStripMenuItem.Text = "Format";
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.CheckOnClick = true;
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(148, 22);
+            toolStripMenuItem1.Text = "Word warp";
+            toolStripMenuItem1.Click += wordwarp;
+            // 
             // fontToolStripMenuItem
             // 
             fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            fontToolStripMenuItem.Size = new Size(180, 22);
+            fontToolStripMenuItem.Size = new Size(148, 22);
             fontToolStripMenuItem.Text = "Font...";
             fontToolStripMenuItem.Click += fontToolStripMenuItem_Click;
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { zoomToolStripMenuItem, windowsTransparencyToolStripMenuItem, wordWarpToolStripMenuItem, righttoleftToolStripMenuItem });
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { zoomToolStripMenuItem, windowsTransparencyToolStripMenuItem, righttoleftToolStripMenuItem, statusBarToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(52, 20);
             viewToolStripMenuItem.Text = "View";
@@ -243,21 +292,24 @@
             toolStripMenuItem5.Text = "100%";
             toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
-            // wordWarpToolStripMenuItem
-            // 
-            wordWarpToolStripMenuItem.CheckOnClick = true;
-            wordWarpToolStripMenuItem.Name = "wordWarpToolStripMenuItem";
-            wordWarpToolStripMenuItem.Size = new Size(227, 22);
-            wordWarpToolStripMenuItem.Text = "Word warp";
-            wordWarpToolStripMenuItem.Click += wordWarpToolStripMenuItem_Click;
-            // 
             // righttoleftToolStripMenuItem
             // 
             righttoleftToolStripMenuItem.CheckOnClick = true;
             righttoleftToolStripMenuItem.Name = "righttoleftToolStripMenuItem";
             righttoleftToolStripMenuItem.Size = new Size(227, 22);
             righttoleftToolStripMenuItem.Text = "Right-to-left reading";
+            righttoleftToolStripMenuItem.ToolTipText = "Will reset zoom factor";
             righttoleftToolStripMenuItem.CheckedChanged += righttoleftToolStripMenuItem_CheckedChanged;
+            // 
+            // statusBarToolStripMenuItem
+            // 
+            statusBarToolStripMenuItem.Checked = true;
+            statusBarToolStripMenuItem.CheckOnClick = true;
+            statusBarToolStripMenuItem.CheckState = CheckState.Checked;
+            statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
+            statusBarToolStripMenuItem.Size = new Size(227, 22);
+            statusBarToolStripMenuItem.Text = "Status bar";
+            statusBarToolStripMenuItem.Click += statusBarToolStripMenuItem_Click;
             // 
             // richTextBox1
             // 
@@ -303,6 +355,13 @@
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(183, 6);
+            // 
+            // cutToolStripMenuItem1
+            // 
+            cutToolStripMenuItem1.Name = "cutToolStripMenuItem1";
+            cutToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+X";
+            cutToolStripMenuItem1.Size = new Size(186, 22);
+            cutToolStripMenuItem1.Text = "Cut";
             // 
             // pasteToolStripMenuItem
             // 
@@ -357,13 +416,6 @@
             toolStripStatusLabel1.Size = new Size(72, 17);
             toolStripStatusLabel1.Text = "Letters: 0";
             // 
-            // cutToolStripMenuItem1
-            // 
-            cutToolStripMenuItem1.Name = "cutToolStripMenuItem1";
-            cutToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+X";
-            cutToolStripMenuItem1.Size = new Size(186, 22);
-            cutToolStripMenuItem1.Text = "Cut";
-            // 
             // main
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
@@ -395,7 +447,6 @@
         private ToolStripMenuItem closeToolStripMenuItem;
         private RichTextBox richTextBox1;
         private ToolStripMenuItem selectToolStripMenuItem;
-        private ToolStripMenuItem fontToolStripMenuItem;
         private FontDialog fontDialog1;
         private ToolStripMenuItem viewToolStripMenuItem;
         private ToolStripMenuItem windowsTransparencyToolStripMenuItem;
@@ -403,7 +454,6 @@
         private ToolStripMenuItem toolStripMenuItem3;
         private ToolStripMenuItem toolStripMenuItem4;
         private ToolStripMenuItem toolStripMenuItem5;
-        private ToolStripMenuItem wordWarpToolStripMenuItem;
         private ToolStripMenuItem zoomToolStripMenuItem;
         private ToolStripMenuItem zoomInToolStripMenuItem;
         private ToolStripMenuItem zoomOutToolStripMenuItem;
@@ -425,5 +475,13 @@
         private ToolStripMenuItem deleteToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem cutToolStripMenuItem1;
+        private ToolStripMenuItem statusBarToolStripMenuItem;
+        private ToolStripMenuItem formatToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem fontToolStripMenuItem;
+        private ToolStripMenuItem undoToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem selectAllToolStripMenuItem1;
+        private ToolStripMenuItem timeDateToolStripMenuItem;
     }
 }
