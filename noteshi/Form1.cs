@@ -144,10 +144,10 @@ namespace noteshi
             }
         }
 
-        private void wordwarp(object sender, EventArgs e)
+        private void wordWarpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //word warp
-            if (toolStripMenuItem1.Checked == true)
+            if (wordWarpToolStripMenuItem.Checked == true)
             {
                 richTextBox1.WordWrap = true;
             }
@@ -234,7 +234,7 @@ namespace noteshi
 
         private void righttoleftToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
-            if (righttoleftToolStripMenuItem.Checked)
+            if (righttoleftReadingToolStripMenuItem.Checked)
             {
                 richTextBox1.RightToLeft = RightToLeft.Yes;
             }
@@ -254,22 +254,9 @@ namespace noteshi
             richTextBox1.Paste();
         }
 
-        private void statusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (statusBarToolStripMenuItem.Checked)
-            {
-                statusStrip1.Visible = true;
-            }
-            else
-            {
-                statusStrip1.Visible = false;
-            }
-        }
-
-        private void timeDateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           DateTime now = DateTime.Now;
-           richTextBox1.Text += now; 
+            richTextBox1.Cut();
         }
     }
 }
