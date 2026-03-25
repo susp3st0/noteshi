@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Threading.Tasks;
 namespace noteshi
 {
     partial class AboutBox1 : Form
@@ -109,6 +109,15 @@ namespace noteshi
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void label1_Click(object sender, EventArgs e)
+        {
+            while (this.Opacity > 0.2)
+            {
+                this.Opacity -= 0.001;
+                await Task.Delay(10);
+            }
         }
     }
 }

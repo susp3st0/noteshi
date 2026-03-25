@@ -37,12 +37,13 @@
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("KG Red Hands", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(141, 11);
+            label1.Location = new Point(148, 11);
             label1.Name = "label1";
             label1.Size = new Size(73, 22);
             label1.TabIndex = 0;
             label1.Text = "noteshi";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             label1.MouseLeave += label1_MouseLeave;
             label1.MouseHover += label2_MouseHover;
             // 
@@ -50,7 +51,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(89, 50);
+            label2.Location = new Point(89, 42);
             label2.Name = "label2";
             label2.Size = new Size(182, 32);
             label2.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(132, 150);
+            button1.Location = new Point(130, 150);
             button1.Name = "button1";
             button1.Size = new Size(106, 32);
             button1.TabIndex = 2;
