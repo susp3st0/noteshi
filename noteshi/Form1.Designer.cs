@@ -70,6 +70,8 @@
             fontDialog1 = new FontDialog();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -77,7 +79,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, selectToolStripMenuItem, fToolStripMenuItem, viewToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, selectToolStripMenuItem, fToolStripMenuItem, viewToolStripMenuItem, helpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -175,6 +177,7 @@
             // 
             // wordWarpToolStripMenuItem
             // 
+            wordWarpToolStripMenuItem.CheckOnClick = true;
             wordWarpToolStripMenuItem.Name = "wordWarpToolStripMenuItem";
             wordWarpToolStripMenuItem.Size = new Size(148, 22);
             wordWarpToolStripMenuItem.Text = "Word warp";
@@ -381,6 +384,20 @@
             toolStripStatusLabel1.Size = new Size(72, 17);
             toolStripStatusLabel1.Text = "Letters: 0";
             // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(46, 20);
+            helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+            // 
             // main
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
@@ -443,5 +460,7 @@
         private ToolStripMenuItem fontToolStripMenuItem1;
         private ToolStripMenuItem selectAllToolStripMenuItem1;
         private ToolStripMenuItem righttoleftReadingToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

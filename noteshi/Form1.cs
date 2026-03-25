@@ -258,5 +258,11 @@ namespace noteshi
         {
             richTextBox1.Cut();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 about = new AboutBox1();
+            about.ShowDialog();
+        }
     }
 }
