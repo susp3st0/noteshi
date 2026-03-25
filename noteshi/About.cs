@@ -9,9 +9,9 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 namespace noteshi
 {
-    partial class AboutBox1 : Form
+    partial class About : Form
     {
-        public AboutBox1()
+        public About()
         {
             InitializeComponent();
         }
@@ -117,6 +117,17 @@ namespace noteshi
             {
                 this.Opacity -= 0.001;
                 await Task.Delay(10);
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            int timer = 1;
+            while (timer < 50)
+            {
+                this.Width += 1;
+                Task.Delay(timer);
+                timer += 1;
             }
         }
     }

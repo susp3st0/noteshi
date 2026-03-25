@@ -261,8 +261,14 @@ namespace noteshi
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutBox1 about = new AboutBox1();
+            About about = new About();
             about.ShowDialog();
+        }
+
+        private void calculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Calc calc = new Calc();
+            calc.Show();
         }
     }
 }

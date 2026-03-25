@@ -1,6 +1,6 @@
 ﻿namespace noteshi
 {
-    partial class AboutBox1
+    partial class About
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -51,11 +52,11 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(89, 42);
+            label2.Location = new Point(105, 33);
             label2.Name = "label2";
-            label2.Size = new Size(182, 32);
+            label2.Size = new Size(157, 32);
             label2.TabIndex = 1;
-            label2.Text = "a simple notepad copy app\r\nthat nobody ask\r\n";
+            label2.Text = "a simple notepad clone\r\nthat nobody ask\r\n";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // button1
@@ -68,11 +69,22 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(360, 11);
+            label3.Name = "label3";
+            label3.Size = new Size(15, 16);
+            label3.TabIndex = 3;
+            label3.Text = "a";
+            label3.Click += label3_Click;
+            // 
             // AboutBox1
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(377, 196);
+            Controls.Add(label3);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -96,5 +108,6 @@
         private Label label1;
         private Label label2;
         private Button button1;
+        private Label label3;
     }
 }
