@@ -58,7 +58,7 @@
             // num
             // 
             num.Font = new Font("Segoe UI Semilight", 18F);
-            num.Location = new Point(20, 253);
+            num.Location = new Point(20, 262);
             num.Name = "num";
             num.Size = new Size(45, 45);
             num.TabIndex = 1;
@@ -69,7 +69,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI Semilight", 18F);
-            button1.Location = new Point(20, 304);
+            button1.Location = new Point(20, 313);
             button1.Name = "button1";
             button1.Size = new Size(96, 45);
             button1.TabIndex = 2;
@@ -80,7 +80,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI Semilight", 18F);
-            button2.Location = new Point(20, 202);
+            button2.Location = new Point(20, 211);
             button2.Name = "button2";
             button2.Size = new Size(45, 45);
             button2.TabIndex = 3;
@@ -91,7 +91,7 @@
             // button3
             // 
             button3.Font = new Font("Segoe UI Semilight", 18F);
-            button3.Location = new Point(20, 151);
+            button3.Location = new Point(20, 160);
             button3.Name = "button3";
             button3.Size = new Size(45, 45);
             button3.TabIndex = 4;
@@ -102,7 +102,7 @@
             // button4
             // 
             button4.Font = new Font("Segoe UI Semilight", 18F);
-            button4.Location = new Point(71, 151);
+            button4.Location = new Point(71, 160);
             button4.Name = "button4";
             button4.Size = new Size(45, 45);
             button4.TabIndex = 7;
@@ -113,7 +113,7 @@
             // button5
             // 
             button5.Font = new Font("Segoe UI Semilight", 18F);
-            button5.Location = new Point(71, 202);
+            button5.Location = new Point(71, 211);
             button5.Name = "button5";
             button5.Size = new Size(45, 45);
             button5.TabIndex = 6;
@@ -124,7 +124,7 @@
             // button6
             // 
             button6.Font = new Font("Segoe UI Semilight", 18F);
-            button6.Location = new Point(71, 253);
+            button6.Location = new Point(71, 262);
             button6.Name = "button6";
             button6.Size = new Size(45, 45);
             button6.TabIndex = 5;
@@ -135,7 +135,7 @@
             // button7
             // 
             button7.Font = new Font("Segoe UI Semilight", 18F);
-            button7.Location = new Point(122, 151);
+            button7.Location = new Point(122, 160);
             button7.Name = "button7";
             button7.Size = new Size(45, 45);
             button7.TabIndex = 10;
@@ -146,7 +146,7 @@
             // button8
             // 
             button8.Font = new Font("Segoe UI Semilight", 18F);
-            button8.Location = new Point(122, 202);
+            button8.Location = new Point(122, 211);
             button8.Name = "button8";
             button8.Size = new Size(45, 45);
             button8.TabIndex = 9;
@@ -157,7 +157,7 @@
             // button9
             // 
             button9.Font = new Font("Segoe UI Semilight", 18F);
-            button9.Location = new Point(122, 253);
+            button9.Location = new Point(122, 262);
             button9.Name = "button9";
             button9.Size = new Size(45, 45);
             button9.TabIndex = 8;
@@ -168,7 +168,7 @@
             // button10
             // 
             button10.Font = new Font("Segoe UI Semilight", 18F);
-            button10.Location = new Point(173, 151);
+            button10.Location = new Point(173, 160);
             button10.Name = "button10";
             button10.Size = new Size(45, 45);
             button10.TabIndex = 13;
@@ -179,7 +179,7 @@
             // button11
             // 
             button11.Font = new Font("Segoe UI Semilight", 18F);
-            button11.Location = new Point(173, 202);
+            button11.Location = new Point(173, 211);
             button11.Name = "button11";
             button11.Size = new Size(45, 45);
             button11.TabIndex = 12;
@@ -190,7 +190,7 @@
             // button12
             // 
             button12.Font = new Font("Segoe UI Semilight", 18F);
-            button12.Location = new Point(173, 253);
+            button12.Location = new Point(173, 262);
             button12.Name = "button12";
             button12.Size = new Size(45, 45);
             button12.TabIndex = 11;
@@ -201,7 +201,7 @@
             // button13
             // 
             button13.Font = new Font("Segoe UI Semilight", 18F);
-            button13.Location = new Point(173, 304);
+            button13.Location = new Point(173, 313);
             button13.Name = "button13";
             button13.Size = new Size(45, 45);
             button13.TabIndex = 14;
@@ -212,7 +212,7 @@
             // button14
             // 
             button14.Font = new Font("Segoe UI Semilight", 18F);
-            button14.Location = new Point(122, 304);
+            button14.Location = new Point(122, 313);
             button14.Name = "button14";
             button14.Size = new Size(45, 45);
             button14.TabIndex = 15;
@@ -223,7 +223,7 @@
             // button15
             // 
             button15.Font = new Font("Segoe UI Semilight", 18F);
-            button15.Location = new Point(20, 100);
+            button15.Location = new Point(20, 109);
             button15.Name = "button15";
             button15.Size = new Size(45, 45);
             button15.TabIndex = 16;
@@ -234,7 +234,7 @@
             // button16
             // 
             button16.Font = new Font("Segoe UI Semilight", 18F);
-            button16.Location = new Point(71, 100);
+            button16.Location = new Point(71, 109);
             button16.Name = "button16";
             button16.Size = new Size(45, 45);
             button16.TabIndex = 17;
@@ -245,7 +245,7 @@
             // button17
             // 
             button17.Font = new Font("Segoe UI Semilight", 18F);
-            button17.Location = new Point(224, 304);
+            button17.Location = new Point(224, 313);
             button17.Name = "button17";
             button17.Size = new Size(45, 45);
             button17.TabIndex = 18;
@@ -259,7 +259,7 @@
             richTextBox1.Location = new Point(20, 12);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.RightToLeft = RightToLeft.No;
-            richTextBox1.Size = new Size(374, 70);
+            richTextBox1.Size = new Size(300, 70);
             richTextBox1.TabIndex = 19;
             richTextBox1.Text = "";
             richTextBox1.KeyDown += richTextBox1_KeyDown;
@@ -267,7 +267,7 @@
             // button18
             // 
             button18.Font = new Font("Segoe UI Semilight", 18F);
-            button18.Location = new Point(326, 202);
+            button18.Location = new Point(275, 109);
             button18.Name = "button18";
             button18.Size = new Size(45, 45);
             button18.TabIndex = 21;
@@ -278,7 +278,7 @@
             // button19
             // 
             button19.Font = new Font("Segoe UI Semilight", 18F);
-            button19.Location = new Point(224, 202);
+            button19.Location = new Point(173, 109);
             button19.Name = "button19";
             button19.Size = new Size(45, 45);
             button19.TabIndex = 20;
@@ -289,7 +289,7 @@
             // button20
             // 
             button20.Font = new Font("Segoe UI Semilight", 18F);
-            button20.Location = new Point(275, 202);
+            button20.Location = new Point(224, 109);
             button20.Name = "button20";
             button20.Size = new Size(45, 45);
             button20.TabIndex = 22;
@@ -300,7 +300,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(255, 170);
+            label1.Location = new Point(204, 85);
             label1.Name = "label1";
             label1.Size = new Size(84, 16);
             label1.TabIndex = 23;
@@ -309,7 +309,7 @@
             // button21
             // 
             button21.Font = new Font("Segoe UI Semilight", 18F);
-            button21.Location = new Point(122, 100);
+            button21.Location = new Point(122, 109);
             button21.Name = "button21";
             button21.Size = new Size(45, 45);
             button21.TabIndex = 24;
@@ -320,7 +320,7 @@
             // button22
             // 
             button22.Font = new Font("Segoe UI Semilight", 18F);
-            button22.Location = new Point(224, 253);
+            button22.Location = new Point(224, 262);
             button22.Name = "button22";
             button22.Size = new Size(45, 45);
             button22.TabIndex = 25;
@@ -332,7 +332,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(406, 361);
+            ClientSize = new Size(335, 405);
             Controls.Add(button22);
             Controls.Add(button21);
             Controls.Add(label1);
