@@ -109,13 +109,82 @@ namespace noteshi
             }
             catch (Exception ex)
             {
-                richTextBox1.Text = "Error: " + ex.Message;
+                if (ex is SyntaxErrorException || ex is System.Data.EvaluateException)
+                {
+                    richTextBox1.Text = "Syntax error";
+                }
+                else if (ex is System.DivideByZeroException)
+                {
+                    richTextBox1.Text = "Math error";
+                }
+                else if (ex is System.OverflowException)
+                {
+                    richTextBox1.Text = "Overflow error";
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             richTextBox1.Text += "0";
+        }
+
+        private void richTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                button17_Click(sender, e);
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text += "=";
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text += "<";
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text += ">";
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double inputnumber = Convert.ToDouble(new DataTable().Compute(richTextBox1.Text, null).ToString());
+                double result = Math.Sqrt(inputnumber);
+                richTextBox1.Text = Convert.ToString(result);
+            }
+            catch (Exception ex)
+            {
+                if (ex is System.FormatException)
+                {
+                    richTextBox1.Text = "Syntax error";
+                }
+            }
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double inputnumber = Convert.ToDouble(new DataTable().Compute(richTextBox1.Text, null).ToString());
+                double result = Math.Round(inputnumber);
+                richTextBox1.Text = Convert.ToString(result);
+            }
+            catch (Exception ex)
+            {
+                if (ex is System.FormatException)
+                {
+                    richTextBox1.Text = "Syntax error";
+                }
+            }
         }
     }
 }

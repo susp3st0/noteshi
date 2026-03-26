@@ -47,6 +47,12 @@
             button16 = new Button();
             button17 = new Button();
             richTextBox1 = new RichTextBox();
+            button18 = new Button();
+            button19 = new Button();
+            button20 = new Button();
+            label1 = new Label();
+            button21 = new Button();
+            button22 = new Button();
             SuspendLayout();
             // 
             // num
@@ -239,9 +245,9 @@
             // button17
             // 
             button17.Font = new Font("Segoe UI Semilight", 18F);
-            button17.Location = new Point(224, 253);
+            button17.Location = new Point(224, 304);
             button17.Name = "button17";
-            button17.Size = new Size(45, 96);
+            button17.Size = new Size(45, 45);
             button17.TabIndex = 18;
             button17.Text = "=";
             button17.UseVisualStyleBackColor = true;
@@ -249,19 +255,90 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Font = new Font("Segoe UI Semilight", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            richTextBox1.Font = new Font("Segoe UI Semilight", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             richTextBox1.Location = new Point(20, 12);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.RightToLeft = RightToLeft.Yes;
-            richTextBox1.Size = new Size(259, 70);
+            richTextBox1.RightToLeft = RightToLeft.No;
+            richTextBox1.Size = new Size(374, 70);
             richTextBox1.TabIndex = 19;
             richTextBox1.Text = "";
+            richTextBox1.KeyDown += richTextBox1_KeyDown;
+            // 
+            // button18
+            // 
+            button18.Font = new Font("Segoe UI Semilight", 18F);
+            button18.Location = new Point(326, 202);
+            button18.Name = "button18";
+            button18.Size = new Size(45, 45);
+            button18.TabIndex = 21;
+            button18.Text = ">";
+            button18.UseVisualStyleBackColor = true;
+            button18.Click += button18_Click;
+            // 
+            // button19
+            // 
+            button19.Font = new Font("Segoe UI Semilight", 18F);
+            button19.Location = new Point(224, 202);
+            button19.Name = "button19";
+            button19.Size = new Size(45, 45);
+            button19.TabIndex = 20;
+            button19.Text = "<";
+            button19.UseVisualStyleBackColor = true;
+            button19.Click += button19_Click;
+            // 
+            // button20
+            // 
+            button20.Font = new Font("Segoe UI Semilight", 18F);
+            button20.Location = new Point(275, 202);
+            button20.Name = "button20";
+            button20.Size = new Size(45, 45);
+            button20.TabIndex = 22;
+            button20.Text = "=";
+            button20.UseVisualStyleBackColor = true;
+            button20.Click += button20_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(255, 170);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 16);
+            label1.TabIndex = 23;
+            label1.Text = "Comparison";
+            // 
+            // button21
+            // 
+            button21.Font = new Font("Segoe UI Semilight", 18F);
+            button21.Location = new Point(122, 100);
+            button21.Name = "button21";
+            button21.Size = new Size(45, 45);
+            button21.TabIndex = 24;
+            button21.Text = "√";
+            button21.UseVisualStyleBackColor = true;
+            button21.Click += button21_Click;
+            // 
+            // button22
+            // 
+            button22.Font = new Font("Segoe UI Semilight", 18F);
+            button22.Location = new Point(224, 253);
+            button22.Name = "button22";
+            button22.Size = new Size(45, 45);
+            button22.TabIndex = 25;
+            button22.Text = "≈";
+            button22.UseVisualStyleBackColor = true;
+            button22.Click += button22_Click;
             // 
             // Calc
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(291, 361);
+            ClientSize = new Size(406, 361);
+            Controls.Add(button22);
+            Controls.Add(button21);
+            Controls.Add(label1);
+            Controls.Add(button20);
+            Controls.Add(button18);
+            Controls.Add(button19);
             Controls.Add(richTextBox1);
             Controls.Add(button17);
             Controls.Add(button16);
@@ -287,6 +364,7 @@
             Name = "Calc";
             Text = "Calculator";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -309,5 +387,11 @@
         private Button button16;
         private Button button17;
         private RichTextBox richTextBox1;
+        private Button button18;
+        private Button button19;
+        private Button button20;
+        private Label label1;
+        private Button button21;
+        private Button button22;
     }
 }

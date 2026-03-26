@@ -75,6 +75,7 @@
             fontDialog1 = new FontDialog();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            saveAssoonToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -91,7 +92,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem, closeToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem, saveAssoonToolStripMenuItem, closeToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(40, 20);
             fileToolStripMenuItem.Text = "File";
@@ -100,7 +101,7 @@
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(164, 22);
+            openToolStripMenuItem.Size = new Size(174, 22);
             openToolStripMenuItem.Text = "Open...";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
@@ -108,14 +109,14 @@
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
-            saveToolStripMenuItem.Size = new Size(164, 22);
+            saveToolStripMenuItem.Size = new Size(174, 22);
             saveToolStripMenuItem.Text = "Save...";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // closeToolStripMenuItem
             // 
             closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            closeToolStripMenuItem.Size = new Size(164, 22);
+            closeToolStripMenuItem.Size = new Size(174, 22);
             closeToolStripMenuItem.Text = "Close";
             closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
             // 
@@ -181,7 +182,7 @@
             // calculatorToolStripMenuItem
             // 
             calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
-            calculatorToolStripMenuItem.Size = new Size(180, 22);
+            calculatorToolStripMenuItem.Size = new Size(140, 22);
             calculatorToolStripMenuItem.Text = "Calculator";
             calculatorToolStripMenuItem.Click += calculatorToolStripMenuItem_Click;
             // 
@@ -196,14 +197,14 @@
             // 
             wordWarpToolStripMenuItem.CheckOnClick = true;
             wordWarpToolStripMenuItem.Name = "wordWarpToolStripMenuItem";
-            wordWarpToolStripMenuItem.Size = new Size(148, 22);
+            wordWarpToolStripMenuItem.Size = new Size(180, 22);
             wordWarpToolStripMenuItem.Text = "Word warp";
             wordWarpToolStripMenuItem.Click += wordWarpToolStripMenuItem_Click;
             // 
             // fontToolStripMenuItem1
             // 
             fontToolStripMenuItem1.Name = "fontToolStripMenuItem1";
-            fontToolStripMenuItem1.Size = new Size(148, 22);
+            fontToolStripMenuItem1.Size = new Size(180, 22);
             fontToolStripMenuItem1.Text = "Font...";
             fontToolStripMenuItem1.Click += fontToolStripMenuItem_Click;
             // 
@@ -415,6 +416,12 @@
             toolStripStatusLabel1.Size = new Size(72, 17);
             toolStripStatusLabel1.Text = "Letters: 0";
             // 
+            // saveAssoonToolStripMenuItem
+            // 
+            saveAssoonToolStripMenuItem.Name = "saveAssoonToolStripMenuItem";
+            saveAssoonToolStripMenuItem.Size = new Size(174, 22);
+            saveAssoonToolStripMenuItem.Text = "Save as...(soon)";
+            // 
             // main
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
@@ -483,5 +490,6 @@
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem calculatorToolStripMenuItem;
+        private ToolStripMenuItem saveAssoonToolStripMenuItem;
     }
 }
