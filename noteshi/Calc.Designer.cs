@@ -358,7 +358,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(num);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Calc";

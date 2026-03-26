@@ -270,5 +270,11 @@ namespace noteshi
             Calc calc = new Calc();
             calc.Show();
         }
+
+        private void ballMaybeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _8ball ball = new _8ball();
+            ball.Show();
+        }
     }
 }

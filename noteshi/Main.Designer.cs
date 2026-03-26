@@ -34,6 +34,7 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             saveToolStripMenuItem = new ToolStripMenuItem();
+            saveAssoonToolStripMenuItem = new ToolStripMenuItem();
             closeToolStripMenuItem = new ToolStripMenuItem();
             selectToolStripMenuItem = new ToolStripMenuItem();
             cutToolStripMenuItem = new ToolStripMenuItem();
@@ -75,7 +76,7 @@
             fontDialog1 = new FontDialog();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
-            saveAssoonToolStripMenuItem = new ToolStripMenuItem();
+            ballMaybeToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -112,6 +113,12 @@
             saveToolStripMenuItem.Size = new Size(174, 22);
             saveToolStripMenuItem.Text = "Save...";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
+            // 
+            // saveAssoonToolStripMenuItem
+            // 
+            saveAssoonToolStripMenuItem.Name = "saveAssoonToolStripMenuItem";
+            saveAssoonToolStripMenuItem.Size = new Size(174, 22);
+            saveAssoonToolStripMenuItem.Text = "Save as...(soon)";
             // 
             // closeToolStripMenuItem
             // 
@@ -174,7 +181,7 @@
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { calculatorToolStripMenuItem });
+            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { calculatorToolStripMenuItem, ballMaybeToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             toolsToolStripMenuItem.Size = new Size(52, 20);
             toolsToolStripMenuItem.Text = "Tools";
@@ -182,7 +189,7 @@
             // calculatorToolStripMenuItem
             // 
             calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
-            calculatorToolStripMenuItem.Size = new Size(140, 22);
+            calculatorToolStripMenuItem.Size = new Size(180, 22);
             calculatorToolStripMenuItem.Text = "Calculator";
             calculatorToolStripMenuItem.Click += calculatorToolStripMenuItem_Click;
             // 
@@ -197,14 +204,14 @@
             // 
             wordWarpToolStripMenuItem.CheckOnClick = true;
             wordWarpToolStripMenuItem.Name = "wordWarpToolStripMenuItem";
-            wordWarpToolStripMenuItem.Size = new Size(180, 22);
+            wordWarpToolStripMenuItem.Size = new Size(148, 22);
             wordWarpToolStripMenuItem.Text = "Word warp";
             wordWarpToolStripMenuItem.Click += wordWarpToolStripMenuItem_Click;
             // 
             // fontToolStripMenuItem1
             // 
             fontToolStripMenuItem1.Name = "fontToolStripMenuItem1";
-            fontToolStripMenuItem1.Size = new Size(180, 22);
+            fontToolStripMenuItem1.Size = new Size(148, 22);
             fontToolStripMenuItem1.Text = "Font...";
             fontToolStripMenuItem1.Click += fontToolStripMenuItem_Click;
             // 
@@ -416,11 +423,12 @@
             toolStripStatusLabel1.Size = new Size(72, 17);
             toolStripStatusLabel1.Text = "Letters: 0";
             // 
-            // saveAssoonToolStripMenuItem
+            // ballMaybeToolStripMenuItem
             // 
-            saveAssoonToolStripMenuItem.Name = "saveAssoonToolStripMenuItem";
-            saveAssoonToolStripMenuItem.Size = new Size(174, 22);
-            saveAssoonToolStripMenuItem.Text = "Save as...(soon)";
+            ballMaybeToolStripMenuItem.Name = "ballMaybeToolStripMenuItem";
+            ballMaybeToolStripMenuItem.Size = new Size(180, 22);
+            ballMaybeToolStripMenuItem.Text = "8-ball... maybe";
+            ballMaybeToolStripMenuItem.Click += ballMaybeToolStripMenuItem_Click;
             // 
             // main
             // 
@@ -491,5 +499,6 @@
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem calculatorToolStripMenuItem;
         private ToolStripMenuItem saveAssoonToolStripMenuItem;
+        private ToolStripMenuItem ballMaybeToolStripMenuItem;
     }
 }
