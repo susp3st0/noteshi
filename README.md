@@ -7,5 +7,8 @@ feature?
 - font changer
 - windows transparency
 - word warp
+- calculator
+- 8ball
+-yshehe
 
 very buggy :(
