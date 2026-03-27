@@ -45,6 +45,8 @@
             selectAllToolStripMenuItem1 = new ToolStripMenuItem();
             toolsToolStripMenuItem = new ToolStripMenuItem();
             calculatorToolStripMenuItem = new ToolStripMenuItem();
+            ballMaybeToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             fToolStripMenuItem = new ToolStripMenuItem();
             wordWarpToolStripMenuItem = new ToolStripMenuItem();
             fontToolStripMenuItem1 = new ToolStripMenuItem();
@@ -76,7 +78,6 @@
             fontDialog1 = new FontDialog();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
-            ballMaybeToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -181,7 +182,7 @@
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { calculatorToolStripMenuItem, ballMaybeToolStripMenuItem });
+            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { calculatorToolStripMenuItem, ballMaybeToolStripMenuItem, toolStripMenuItem1 });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             toolsToolStripMenuItem.Size = new Size(52, 20);
             toolsToolStripMenuItem.Text = "Tools";
@@ -189,9 +190,23 @@
             // calculatorToolStripMenuItem
             // 
             calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
-            calculatorToolStripMenuItem.Size = new Size(180, 22);
+            calculatorToolStripMenuItem.Size = new Size(255, 22);
             calculatorToolStripMenuItem.Text = "Calculator";
             calculatorToolStripMenuItem.Click += calculatorToolStripMenuItem_Click;
+            // 
+            // ballMaybeToolStripMenuItem
+            // 
+            ballMaybeToolStripMenuItem.Name = "ballMaybeToolStripMenuItem";
+            ballMaybeToolStripMenuItem.Size = new Size(255, 22);
+            ballMaybeToolStripMenuItem.Text = "8-ball... maybe";
+            ballMaybeToolStripMenuItem.Click += ballMaybeToolStripMenuItem_Click;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(255, 22);
+            toolStripMenuItem1.Text = "Read all text inside notepad";
+            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // fToolStripMenuItem
             // 
@@ -423,13 +438,6 @@
             toolStripStatusLabel1.Size = new Size(72, 17);
             toolStripStatusLabel1.Text = "Letters: 0";
             // 
-            // ballMaybeToolStripMenuItem
-            // 
-            ballMaybeToolStripMenuItem.Name = "ballMaybeToolStripMenuItem";
-            ballMaybeToolStripMenuItem.Size = new Size(180, 22);
-            ballMaybeToolStripMenuItem.Text = "8-ball... maybe";
-            ballMaybeToolStripMenuItem.Click += ballMaybeToolStripMenuItem_Click;
-            // 
             // main
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
@@ -500,5 +508,6 @@
         private ToolStripMenuItem calculatorToolStripMenuItem;
         private ToolStripMenuItem saveAssoonToolStripMenuItem;
         private ToolStripMenuItem ballMaybeToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem1;
     }
 }

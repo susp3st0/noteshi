@@ -1,5 +1,5 @@
 using System.Drawing.Text;
-
+using System.Speech.Synthesis;
 namespace noteshi
 {
     public partial class main : Form
@@ -275,6 +275,16 @@ namespace noteshi
         {
             _8ball ball = new _8ball();
             ball.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+            synth.Volume = 100;
+            synth.SpeakAsyncCancelAll();
+            synth.SetOutputToDefaultAudioDevice();
+            synth.SpeakAsync(richTextBox1.Text);
+            
         }
     }
 }
