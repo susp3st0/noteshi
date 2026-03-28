@@ -4,8 +4,11 @@ namespace noteshi
 {
     public partial class main : Form
     {
+        SpeechSynthesizer synth = new SpeechSynthesizer();
+
         public main()
         {
+            synth.SetOutputToDefaultAudioDevice();
             InitializeComponent();
             this.Text = "noteshi";
         }
@@ -279,12 +282,37 @@ namespace noteshi
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            SpeechSynthesizer synth = new SpeechSynthesizer();
-            synth.Volume = 100;
             synth.SpeakAsyncCancelAll();
-            synth.SetOutputToDefaultAudioDevice();
+            synth.Volume = 100;
             synth.SpeakAsync(richTextBox1.Text);
-            
+        }
+
+        private void stopReadingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (synth != null)
+            {
+                synth.SpeakAsyncCancelAll();
+            }
+        }
+
+        private void richTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                string clipboardText = Clipboard.GetText();
+                string cleanedText = clipboardText.TrimEnd();
+                richTextBox1.SelectedText = cleanedText;
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        private void richTextBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0 && richTextBox1.SelectedText.EndsWith("\n"))
+            {
+                richTextBox1.SelectionLength -= 1;
+            }
         }
     }
 }
