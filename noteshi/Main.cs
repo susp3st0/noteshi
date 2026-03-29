@@ -1,10 +1,16 @@
 using System.Drawing.Text;
 using System.Speech.Synthesis;
+using System.IO;
+using System;
+
 namespace noteshi
 {
     public partial class main : Form
     {
         SpeechSynthesizer synth = new SpeechSynthesizer();
+
+        // Tracks the current file path for "Save" (not "Save As")
+        private string currentFilePath = string.Empty;
 
         public main()
         {
@@ -15,19 +21,23 @@ namespace noteshi
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var saveFileDialog = new SaveFileDialog())
+            // If we have a current file path, save directly to it.
+            if (!string.IsNullOrWhiteSpace(currentFilePath))
             {
-                saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-                saveFileDialog.Title = "Save";
-                saveFileDialog.AddExtension = true;
-                saveFileDialog.DefaultExt = "txt";
-                saveFileDialog.OverwritePrompt = true;
-
-                if (saveFileDialog.ShowDialog(this) == DialogResult.OK
-                    && !string.IsNullOrWhiteSpace(saveFileDialog.FileName))
+                try
                 {
-                    System.IO.File.WriteAllText(saveFileDialog.FileName, richTextBox1.Text);
+                    File.WriteAllText(currentFilePath, richTextBox1.Text);
+                    this.Text = "noteshi - " + Path.GetFileNameWithoutExtension(currentFilePath);
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, "Unable to save file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // No current file: fall back to Save As behavior
+                saveasToolStripMenuItem_Click(sender, e);
             }
         }
 
@@ -41,6 +51,7 @@ namespace noteshi
                     && !string.IsNullOrWhiteSpace(openFileDialog.FileName))
                 {
                     richTextBox1.Text = System.IO.File.ReadAllText(openFileDialog.FileName);
+                    currentFilePath = openFileDialog.FileName;
                     this.Text = "noteshi - " + System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
                 }
             }
@@ -312,6 +323,168 @@ namespace noteshi
             if (richTextBox1.SelectionLength > 0 && richTextBox1.SelectedText.EndsWith("\n"))
             {
                 richTextBox1.SelectionLength -= 1;
+            }
+        }
+
+        private void saveasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                saveFileDialog.Title = "Save";
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.DefaultExt = "txt";
+                saveFileDialog.OverwritePrompt = true;
+
+                if (saveFileDialog.ShowDialog(this) == DialogResult.OK
+                    && !string.IsNullOrWhiteSpace(saveFileDialog.FileName))
+                {
+                    try
+                    {
+                        File.WriteAllText(saveFileDialog.FileName, richTextBox1.Text);
+                        currentFilePath = saveFileDialog.FileName;
+                        this.Text = "noteshi - " + Path.GetFileNameWithoutExtension(currentFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, "Unable to save file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(richTextBox1.Text))
+            {
+                richTextBox1.Clear();
+                currentFilePath = string.Empty;
+                this.Text = "noteshi";
+                return;
+            }
+
+            var result = MessageBox.Show(this,
+                "Do you want to save changes to your note?",
+                "Save",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            if (result == DialogResult.Yes)
+            {
+                if (!string.IsNullOrWhiteSpace(currentFilePath))
+                {
+                    try
+                    {
+                        File.WriteAllText(currentFilePath, richTextBox1.Text);
+                        this.Text = "noteshi - " + Path.GetFileNameWithoutExtension(currentFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, "Unable to save file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    using (var saveFileDialog = new SaveFileDialog())
+                    {
+                        saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                        saveFileDialog.Title = "Save";
+                        saveFileDialog.AddExtension = true;
+                        saveFileDialog.DefaultExt = "txt";
+                        saveFileDialog.OverwritePrompt = true;
+
+                        if (saveFileDialog.ShowDialog(this) == DialogResult.OK
+                            && !string.IsNullOrWhiteSpace(saveFileDialog.FileName))
+                        {
+                            try
+                            {
+                                File.WriteAllText(saveFileDialog.FileName, richTextBox1.Text);
+                                currentFilePath = saveFileDialog.FileName;
+                                this.Text = "noteshi - " + Path.GetFileNameWithoutExtension(currentFilePath);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(this, "Unable to save file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                }
+            }
+            richTextBox1.Clear();
+            currentFilePath = string.Empty;
+            this.Text = "noteshi";
+        }
+
+        private void main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (string.IsNullOrEmpty(richTextBox1.Text))
+            {
+                this.Close();
+            }
+            var result = MessageBox.Show(this,"Do you want to save changes to your note?","Save",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
+
+            if (result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+
+            if (result == DialogResult.Yes)
+            {
+                if (!string.IsNullOrWhiteSpace(currentFilePath))
+                {
+                    try
+                    {
+                        File.WriteAllText(currentFilePath, richTextBox1.Text);
+                        this.Text = "noteshi - " + Path.GetFileNameWithoutExtension(currentFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, "Unable to save file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    using (var saveFileDialog = new SaveFileDialog())
+                    {
+                        saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                        saveFileDialog.Title = "Save";
+                        saveFileDialog.AddExtension = true;
+                        saveFileDialog.DefaultExt = "txt";
+                        saveFileDialog.OverwritePrompt = true;
+
+                        if (saveFileDialog.ShowDialog(this) == DialogResult.OK
+                            && !string.IsNullOrWhiteSpace(saveFileDialog.FileName))
+                        {
+                            try
+                            {
+                                File.WriteAllText(saveFileDialog.FileName, richTextBox1.Text);
+                                currentFilePath = saveFileDialog.FileName;
+                                this.Text = "noteshi - " + Path.GetFileNameWithoutExtension(currentFilePath);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(this, "Unable to save file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                }
             }
         }
     }
