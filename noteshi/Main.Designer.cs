@@ -81,6 +81,7 @@
             fontDialog1 = new FontDialog();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            newWindoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -97,7 +98,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, saveToolStripMenuItem, saveAssoonToolStripMenuItem, openToolStripMenuItem, closeToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, newWindoToolStripMenuItem, saveToolStripMenuItem, saveAssoonToolStripMenuItem, openToolStripMenuItem, closeToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(40, 20);
             fileToolStripMenuItem.Text = "File";
@@ -243,14 +244,14 @@
             // 
             wordWarpToolStripMenuItem.CheckOnClick = true;
             wordWarpToolStripMenuItem.Name = "wordWarpToolStripMenuItem";
-            wordWarpToolStripMenuItem.Size = new Size(180, 22);
+            wordWarpToolStripMenuItem.Size = new Size(148, 22);
             wordWarpToolStripMenuItem.Text = "Word warp";
             wordWarpToolStripMenuItem.Click += wordWarpToolStripMenuItem_Click;
             // 
             // fontToolStripMenuItem1
             // 
             fontToolStripMenuItem1.Name = "fontToolStripMenuItem1";
-            fontToolStripMenuItem1.Size = new Size(180, 22);
+            fontToolStripMenuItem1.Size = new Size(148, 22);
             fontToolStripMenuItem1.Text = "Font...";
             fontToolStripMenuItem1.Click += fontToolStripMenuItem_Click;
             // 
@@ -464,6 +465,13 @@
             toolStripStatusLabel1.Size = new Size(72, 17);
             toolStripStatusLabel1.Text = "Letters: 0";
             // 
+            // newWindoToolStripMenuItem
+            // 
+            newWindoToolStripMenuItem.Name = "newWindoToolStripMenuItem";
+            newWindoToolStripMenuItem.Size = new Size(214, 22);
+            newWindoToolStripMenuItem.Text = "New window";
+            newWindoToolStripMenuItem.Click += newWindoToolStripMenuItem_Click;
+            // 
             // main
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
@@ -539,5 +547,6 @@
         private ToolStripMenuItem stopReadingToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem newToolStripMenuItem;
+        private ToolStripMenuItem newWindoToolStripMenuItem;
     }
 }

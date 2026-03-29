@@ -428,29 +428,35 @@ namespace noteshi
 
         private void main_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             if (string.IsNullOrEmpty(richTextBox1.Text))
             {
-                this.Close();
+                return;
             }
-            var result = MessageBox.Show(this,"Do you want to save changes to your note?","Save",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
+
+            var result = MessageBox.Show(this, "Do you want to save changes to your note?", "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Cancel)
             {
                 e.Cancel = true;
+                return;
             }
-
-            if (result == DialogResult.Yes)
+            else if (result == DialogResult.No)
+            {
+                return;
+            }
+            else if (result == DialogResult.Yes)
             {
                 if (!string.IsNullOrWhiteSpace(currentFilePath))
                 {
                     try
                     {
                         File.WriteAllText(currentFilePath, richTextBox1.Text);
-                        this.Text = "noteshi - " + Path.GetFileNameWithoutExtension(currentFilePath);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(this, "Unable to save file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true; 
                         return;
                     }
                 }
@@ -459,33 +465,24 @@ namespace noteshi
                     using (var saveFileDialog = new SaveFileDialog())
                     {
                         saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-                        saveFileDialog.Title = "Save";
-                        saveFileDialog.AddExtension = true;
-                        saveFileDialog.DefaultExt = "txt";
-                        saveFileDialog.OverwritePrompt = true;
-
-                        if (saveFileDialog.ShowDialog(this) == DialogResult.OK
-                            && !string.IsNullOrWhiteSpace(saveFileDialog.FileName))
+                        if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
                         {
-                            try
-                            {
-                                File.WriteAllText(saveFileDialog.FileName, richTextBox1.Text);
-                                currentFilePath = saveFileDialog.FileName;
-                                this.Text = "noteshi - " + Path.GetFileNameWithoutExtension(currentFilePath);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(this, "Unable to save file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
+                            File.WriteAllText(saveFileDialog.FileName, richTextBox1.Text);
                         }
                         else
-                        {
+                        {                           
+                            e.Cancel = true;
                             return;
                         }
                     }
                 }
             }
+        }
+
+        private void newWindoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            main newwindow = new main();
+            newwindow.Show();
         }
     }
 }
