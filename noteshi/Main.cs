@@ -364,7 +364,7 @@ namespace noteshi
             }
 
             var result = MessageBox.Show(this,
-                "Do you want to save changes to your note?",
+                "Do you want to save changes to your file?",
                 "Save",
                 MessageBoxButtons.YesNoCancel,
                 MessageBoxIcon.Question);
@@ -434,7 +434,7 @@ namespace noteshi
                 return;
             }
 
-            var result = MessageBox.Show(this, "Do you want to save changes to your note?", "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            var result = MessageBox.Show(this, "Do you want to save changes to your file?", "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Cancel)
             {
